@@ -5,7 +5,7 @@ A rather opinionated skeleton project for getting started with your slim applica
 
 ## Getting started
 The easiest method for getting started developing with the Slim3 Skeleton is via the composer `create-project` command:
-`composer create-project --prefer-dist carbontwelve/slim-skeleton app`
+`composer create-project -s dev --prefer-dist carbontwelve/slim-skeleton app`
 
 Once installed you can use the built in php server with the `serve.php` helper to run the app in your browser:
 `php -S 127.0.0.1:8080 serve.php`
