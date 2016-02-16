@@ -1,10 +1,12 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use App\Http\Controllers\ExampleController;
 use Interop\Container\ContainerInterface;
+use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Slim\Views\PhpRenderer;
-use Pimple\Container;
 
 class ControllerProvider implements ServiceProviderInterface
 {
@@ -18,13 +20,14 @@ class ControllerProvider implements ServiceProviderInterface
      * It should not get services.
      *
      * @param Container|ContainerInterface $pimple A container instance
+     *
      * @return PhpRenderer
      */
     public function register(Container $pimple)
     {
         $this->registerControllers($pimple);
         /**
-         * @var string $id
+         * @var string
          * @var \App\Http\Controllers\BaseController $controller
          */
         foreach ($this->controllers as $id => $controller) {
@@ -40,5 +43,4 @@ class ControllerProvider implements ServiceProviderInterface
     {
         $this->controllers['App\Http\Controllers\ExampleController'] = new ExampleController();
     }
-
 }

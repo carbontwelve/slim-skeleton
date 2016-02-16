@@ -1,4 +1,6 @@
-<?php namespace App\Http\Middleware;
+<?php
+
+namespace App\Http\Middleware;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -14,11 +16,11 @@ class ExampleMiddleware
     }
 
     /**
-     * Example middleware invokable class
+     * Example middleware invokable class.
      *
-     * @param  ServerRequestInterface $request PSR7 request
-     * @param  ResponseInterface $response PSR7 response
-     * @param  callable $next Next middleware
+     * @param ServerRequestInterface $request  PSR7 request
+     * @param ResponseInterface      $response PSR7 response
+     * @param callable               $next     Next middleware
      *
      * @return ResponseInterface
      */

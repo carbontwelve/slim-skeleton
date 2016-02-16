@@ -1,8 +1,10 @@
-<?php namespace App\Http\Controllers;
+<?php
 
+namespace App\Http\Controllers;
+
+use Aura\Session\Segment;
 use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
-use Aura\Session\Segment;
 
 class BaseController
 {
@@ -31,7 +33,8 @@ class BaseController
      *
      * @param $view
      * @param ResponseInterface $response
-     * @param array $args
+     * @param array             $args
+     *
      * @return ResponseInterface
      */
     protected function view($view, ResponseInterface $response, array $args = [])
@@ -49,6 +52,7 @@ class BaseController
 
         /** @var \Slim\Views\PhpRenderer $renderer */
         $renderer = $this->container['renderer'];
+
         return $renderer->render($response, $view, $args);
     }
 }
