@@ -12,11 +12,3 @@ Once installed you can use the built in php server with the `serve.php` helper t
 
 ## Roadmap
 I found myself needing a simple, yet opinionated, skeleton project to build out other applications using Slim3. For larger projects I tend to go for Laravel5 and so the folder structure is heavily inspired by that framework.
-
-Eventually this skeleton will include the following:
-
-- [ ] Command line tool (alla Laravels `artisan`)
-- [ ] Optional Whoops error handler service provider
-- [ ] Prettier var_dump for the `dd()` method
-- [ ] HTTP Basic Auth middleware
-- [ ] JWT Auth middleware
