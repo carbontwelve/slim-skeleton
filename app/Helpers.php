@@ -11,7 +11,11 @@ if (!function_exists('dd')) {
      */
     function dd($dump)
     {
-        var_dump($dump);
+        if (function_exists('dump')) {
+            dump($dump);
+        }else {
+            var_dump($dump);
+        }
         die;
     }
 }
