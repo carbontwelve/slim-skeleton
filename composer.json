@@ -1,6 +1,7 @@
 {
   "name": "carbontwelve/slim-skeleton",
   "description": "An opinionated slim skeleton",
+  "keywords": ["framework", "slim", "mvc", "slim-starter"],
   "license": "MIT",
   "authors": [
     {
@@ -25,6 +26,9 @@
     "files": [
       "app/Helpers.php"
     ]
+  },
+  "config": {
+    "preferred-install": "dist"
   },
   "minimum-stability": "dev"
 }
