@@ -1,7 +1,9 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use Psr\Http\Message\ServerRequestInterface;
+namespace App\Http\Controllers;
+
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class ExampleController extends BaseController
 {

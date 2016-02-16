@@ -1,9 +1,11 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use Interop\Container\ContainerInterface;
+use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Slim\Views\PhpRenderer;
-use Pimple\Container;
 
 class ViewProvider implements ServiceProviderInterface
 {
@@ -14,6 +16,7 @@ class ViewProvider implements ServiceProviderInterface
      * It should not get services.
      *
      * @param Container|ContainerInterface $pimple A container instance
+     *
      * @return PhpRenderer
      */
     public function register(Container $pimple)
