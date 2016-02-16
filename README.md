@@ -13,8 +13,8 @@ I found myself needing a simple, yet opinionated, skeleton project to build out 
 
 Eventually this skeleton will include the following:
 
-[ ] Command line tool (alla Laravels `artisan`)
-[ ] Optional Whoops error handler service provider
-[ ] Prettier var_dump for the `dd()` method
-[ ] HTTP Basic Auth middleware
-[ ] JWT Auth middleware
+- [ ] Command line tool (alla Laravels `artisan`)
+- [ ] Optional Whoops error handler service provider
+- [ ] Prettier var_dump for the `dd()` method
+- [ ] HTTP Basic Auth middleware
+- [ ] JWT Auth middleware
