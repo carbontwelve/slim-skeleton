@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'debug'         => true,
+    'whoops.editor' => 'sublime', // Support click to open editor
+
     'displayErrorDetails'               => true, // set to false in production
     'determineRouteBeforeAppMiddleware' => false,
     'outputBuffering'                   => 'append',
