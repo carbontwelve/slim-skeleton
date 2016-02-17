@@ -13,7 +13,7 @@ if (!function_exists('dd')) {
     {
         if (function_exists('dump')) {
             dump($dump);
-        }else {
+        } else {
             var_dump($dump);
         }
         die;
