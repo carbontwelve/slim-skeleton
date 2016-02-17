@@ -1,0 +1,22 @@
+{
+  "name": "slim-skeleton",
+  "version": "0.0.2",
+  "homepage": "https://github.com/carbontwelve/slim-skeleton",
+  "authors": [
+    "Simon Dann <simon.dann@gmail.com>"
+  ],
+  "description": "An opinionated slim skeleton",
+  "keywords": [
+    "slim",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {}
+}
