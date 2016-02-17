@@ -20,4 +20,12 @@ return [
         'name' => 'slim-app',
         'path' => realpath(__DIR__.'/../storage/framework/logs/').DIRECTORY_SEPARATOR.'app-'.date('dmY').'.log',
     ],
+
+    // Services
+    'services' => [
+        \App\Providers\SessionProvider::class,
+        \App\Providers\ViewProvider::class,
+        \App\Providers\LoggerProvider::class,
+        \App\Providers\ControllerProvider::class
+    ]
 ];

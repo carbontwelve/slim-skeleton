@@ -6,15 +6,17 @@ define('APP_BASE', realpath(__DIR__.DIRECTORY_SEPARATOR.'..'));
 
 session_start();
 
-// Instantiate the container
+// Instantiate the container and inject settings
 $container = new \Slim\Container();
+$container['settings'] = new \Slim\Collection(require __DIR__.'/../config/app.php');
 
 // Register Service Providers
-$container->register(new \App\Providers\SettingsProvider());
-$container->register(new \App\Providers\SessionProvider());
-$container->register(new \App\Providers\ViewProvider());
-$container->register(new \App\Providers\LoggerProvider());
-$container->register(new \App\Providers\ControllerProvider());
+foreach($container['settings']['services'] as $service) {
+    if (is_string($service)) {
+        $service = new $service;
+    }
+    $container->register($service);
+}
 
 // Instantiate the app
 $app = new \Slim\App($container);
