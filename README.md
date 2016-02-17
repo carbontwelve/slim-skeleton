@@ -8,7 +8,7 @@ The easiest method for getting started developing with the Slim3 Skeleton is via
 `composer create-project -s dev --prefer-dist carbontwelve/slim-skeleton app`
 
 Once installed you can use the built in php server with the `serve.php` helper to run the app in your browser:
-`php -S 127.0.0.1:8080 serve.php`
+`php -S 127.0.0.1:8080 -t public serve.php`
 
 ## Roadmap
 I found myself needing a simple, yet opinionated, skeleton project to build out other applications using Slim3. For larger projects I tend to go for Laravel5 and so the folder structure is heavily inspired by that framework.
