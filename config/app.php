@@ -26,6 +26,6 @@ return [
         \App\Providers\SessionProvider::class,
         \App\Providers\ViewProvider::class,
         \App\Providers\LoggerProvider::class,
-        \App\Providers\ControllerProvider::class
-    ]
+        \App\Providers\ControllerProvider::class,
+    ],
 ];

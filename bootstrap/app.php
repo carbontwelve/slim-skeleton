@@ -11,9 +11,9 @@ $container = new \Slim\Container();
 $container['settings'] = new \Slim\Collection(require __DIR__.'/../config/app.php');
 
 // Register Service Providers
-foreach($container['settings']['services'] as $service) {
+foreach ($container['settings']['services'] as $service) {
     if (is_string($service)) {
-        $service = new $service;
+        $service = new $service();
     }
     $container->register($service);
 }
