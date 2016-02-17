@@ -1,5 +1,6 @@
 # Slim Skeleton
 [![styleci](https://styleci.io/repos/51846155/shield)](https://styleci.io/repos/51846155)
+[![Dependency Status](https://www.versioneye.com/user/projects/56c4a26118b271003b3922aa/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56c4a26118b271003b3922aa)
 
 A rather opinionated skeleton project for getting started with your slim applications. It is heavily inspired by Laravels directory structure, so if you have used Laravel 5 you should feel familiar with this.
 
