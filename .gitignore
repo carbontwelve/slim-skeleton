@@ -4,3 +4,4 @@ storage/cache/*
 storage/logs/*
 storage/views/*
 resources/components
+node_modules
