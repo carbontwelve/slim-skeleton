@@ -50,7 +50,7 @@ class BaseController
         $messageBag['success'] = $session->getFlash('success');
         $args['message_bag'] = $messageBag;
 
-        /** @var \Slim\Views\PhpRenderer $renderer */
+        /** @var \Carbontwelve\SlimPlates\PlatesRenderer $renderer */
         $renderer = $this->container['renderer'];
 
         return $renderer->render($response, $view, $args);
