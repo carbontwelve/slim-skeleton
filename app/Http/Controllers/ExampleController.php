@@ -9,6 +9,6 @@ class ExampleController extends BaseController
 {
     public function index(ServerRequestInterface $request, ResponseInterface $response, array $args)
     {
-        return $this->view('index.phtml', $response);
+        return $this->view('index', $response);
     }
 }

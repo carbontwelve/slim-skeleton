@@ -12,7 +12,8 @@ return [
 
     // Renderer settings
     'renderer' => [
-        'template_path' => realpath(__DIR__.'/../resources/views').DIRECTORY_SEPARATOR,
+        'template_path' => realpath(__DIR__.'/../resources/views'),
+        'template_ext' => 'phtml'
     ],
 
     // Monolog settings
