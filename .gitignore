@@ -5,5 +5,5 @@ storage/logs/*
 storage/views/*
 resources/components
 node_modules
-public/assets/css
-public/assets/js
+public/assets/css/*
+public/assets/js/*
