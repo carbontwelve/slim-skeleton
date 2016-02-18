@@ -1,8 +1,8 @@
-<?php namespace App\Console;
+<?php
+
+namespace App\Console;
 
 class Kernel
 {
-
     // @todo complete
-
 }
