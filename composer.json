@@ -15,7 +15,7 @@
     "slim/php-view": "^2.0",
     "monolog/monolog": "^1.17",
     "aura/session": "^2.0",
-    "league/plates": "^3.1"
+    "carbontwelve/slim-plates": "^0.0.1"
   },
   "require-dev": {
     "zeuxisoo/slim-whoops": "0.5.*",

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ab372942a25b7d082729e74313f4374",
-    "content-hash": "c5443667ef56a637567fd8fc61dc3fce",
+    "hash": "1ad42893b59ad8dd99e77842197380dc",
+    "content-hash": "05496834d6204e4773f9c14b8f52071f",
     "packages": [
         {
             "name": "aura/session",
@@ -67,6 +67,49 @@
                 "sessions"
             ],
             "time": "2015-07-09 01:21:08"
+        },
+        {
+            "name": "carbontwelve/slim-plates",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carbontwelve/slim-plates.git",
+                "reference": "45a97c443ad37c90d6fb7aaaa26a98102abb7a31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carbontwelve/slim-plates/zipball/45a97c443ad37c90d6fb7aaaa26a98102abb7a31",
+                "reference": "45a97c443ad37c90d6fb7aaaa26a98102abb7a31",
+                "shasum": ""
+            },
+            "require": {
+                "league/plates": "^3.1",
+                "slim/slim": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Carbontwelve\\SlimPlates\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Dann",
+                    "email": "simon.dann@gmail.com"
+                }
+            ],
+            "description": "A Pimple service provider for including php-plates into slim3",
+            "keywords": [
+                "plates",
+                "slim",
+                "template",
+                "view"
+            ],
+            "time": "2016-02-18 11:30:01"
         },
         {
             "name": "container-interop/container-interop",
