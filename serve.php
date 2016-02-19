@@ -12,6 +12,8 @@ define('DIRECTORY_INDEX', 'index.php');
 // Optional array of authorized client IPs for a bit of security
 $config['hostsAllowed'] = [];
 
+chdir(getcwd().DIRECTORY_SEPARATOR.'public');
+
 function logAccess($status = 200)
 {
     file_put_contents('php://stdout', sprintf("[%s] %s:%s [%s]: %s\n",
@@ -37,9 +39,10 @@ if (empty($ext)) {
 }
 
 // If the file exists then return false and let the server handle it
-if (file_exists($_SERVER['DOCUMENT_ROOT'].'public'.DIRECTORY_SEPARATOR.$path)) {
+if (file_exists(getcwd().DIRECTORY_SEPARATOR.$path) && strstr($path, '.php') === false
+) {
     return false;
 }
 
 logAccess();
-require_once __DIR__.'/public/index.php';
+require_once getcwd().DIRECTORY_SEPARATOR.'index.php';
