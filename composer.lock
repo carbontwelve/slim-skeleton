@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e3960dc3f61d7211ac365ca6574620e",
+    "hash": "ec92dc5bd4648c9f310a75d1a6ebc7e9",
     "content-hash": "f2f7ce9900548f201f2ab077e3fd3977",
     "packages": [
         {
@@ -413,12 +413,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "3e35f73e7aeeef01b759b3fd1a70e05d2e4de922"
+                "reference": "2597d9eead8b4d22e4e3712d1d4be330af7760be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/3e35f73e7aeeef01b759b3fd1a70e05d2e4de922",
-                "reference": "3e35f73e7aeeef01b759b3fd1a70e05d2e4de922",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/2597d9eead8b4d22e4e3712d1d4be330af7760be",
+                "reference": "2597d9eead8b4d22e4e3712d1d4be330af7760be",
                 "shasum": ""
             },
             "require": {
@@ -472,7 +472,7 @@
                 "micro",
                 "router"
             ],
-            "time": "2016-02-14 20:43:29"
+            "time": "2016-02-19 09:43:10"
         }
     ],
     "packages-dev": [
