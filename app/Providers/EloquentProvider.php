@@ -2,12 +2,10 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\ExampleController;
 use Illuminate\Database\Capsule\Manager;
 use Interop\Container\ContainerInterface;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Slim\Views\PhpRenderer;
 
 class EloquentProvider implements ServiceProviderInterface
 {
@@ -18,7 +16,6 @@ class EloquentProvider implements ServiceProviderInterface
      * It should not get services.
      *
      * @param Container|ContainerInterface $pimple A container instance
-     *
      */
     public function register(Container $pimple)
     {

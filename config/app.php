@@ -24,14 +24,14 @@ return [
 
     // Database settings
     'database' => [
-        'driver' => 'mysql',
-        'host' => 'localhost',
-        'database' => '',
-        'username' => '',
-        'password' => '',
-        'charset' => 'utf8',
+        'driver'    => 'mysql',
+        'host'      => 'localhost',
+        'database'  => '',
+        'username'  => '',
+        'password'  => '',
+        'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
-        'prefix' => ''
+        'prefix'    => '',
     ],
 
     // Services
