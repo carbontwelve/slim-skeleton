@@ -23,7 +23,6 @@ return [
     ],
 
     // Database settings
-
     'database' => [
         'driver' => 'mysql',
         'host' => 'localhost',
