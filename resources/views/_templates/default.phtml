@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Slim 3</title>
+    <title><?=$this->e($title)?> | Slim 3</title>
 
     <meta title="description" content="An opinionated Slim3 Skeleton">
     <meta title="author" content="Simon Dann <simon.dann@gmail.com>">
@@ -28,8 +28,7 @@
 
     </style>
 </head>
-<body class="text-center">
-<h1>Slim<sup>3</sup> Skeleton</h1>
-<div>An opinionated application skeleton for the Slim 3 micro-framework.</div>
+<body>
+<?=$this->section('pageBody')?>
 </body>
 </html>
