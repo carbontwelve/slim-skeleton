@@ -27,5 +27,6 @@ return [
         \App\Providers\ViewProvider::class,
         \App\Providers\LoggerProvider::class,
         \App\Providers\ControllerProvider::class,
+        \App\Providers\PageViewRoutingProvider::class
     ],
 ];
