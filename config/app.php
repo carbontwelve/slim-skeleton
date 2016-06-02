@@ -22,9 +22,22 @@ return [
         'path' => realpath(__DIR__.'/../storage/framework/logs/').DIRECTORY_SEPARATOR.'app-'.date('dmY').'.log',
     ],
 
+    // Database settings
+    'database' => [
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'database' => '',
+        'username' => '',
+        'password' => '',
+        'charset' => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix' => ''
+    ],
+
     // Services
     'services' => [
         \App\Providers\SessionProvider::class,
+        \App\Providers\EloquentProvider::class,
         \App\Providers\ViewProvider::class,
         \App\Providers\LoggerProvider::class,
         \App\Providers\ControllerProvider::class,

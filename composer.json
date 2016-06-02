@@ -14,7 +14,8 @@
     "slim/slim": "^3.4",
     "monolog/monolog": "^1.17",
     "aura/session": "^2.0",
-    "carbontwelve/slim-plates": "^0.0.1"
+    "carbontwelve/slim-plates": "^0.0.1",
+    "illuminate/database": "^5.2"
   },
   "require-dev": {
     "zeuxisoo/slim-whoops": "0.5.*",
