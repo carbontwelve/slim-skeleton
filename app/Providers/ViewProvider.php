@@ -2,27 +2,9 @@
 
 namespace App\Providers;
 
-use Interop\Container\ContainerInterface;
-use Pimple\Container;
+use Carbontwelve\SlimPlates\PimplePlatesViewProvider;
 use Pimple\ServiceProviderInterface;
-use Slim\Views\PhpRenderer;
 
-class ViewProvider implements ServiceProviderInterface
+class ViewProvider extends PimplePlatesViewProvider implements ServiceProviderInterface
 {
-    /**
-     * Registers services on the given container.
-     *
-     * This method should only be used to configure services and parameters.
-     * It should not get services.
-     *
-     * @param Container|ContainerInterface $pimple A container instance
-     *
-     * @return PhpRenderer
-     */
-    public function register(Container $pimple)
-    {
-        $settings = $pimple->get('settings')['renderer'];
-
-        $pimple['renderer'] = new PhpRenderer($settings['template_path']);
-    }
 }
