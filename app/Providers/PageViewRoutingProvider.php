@@ -2,11 +2,10 @@
 
 namespace App\Providers;
 
-use App\Http\Handlers\NotFound;
+use App\Http\Handlers\NotFoundPageResolver;
 use Interop\Container\ContainerInterface;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Slim\Views\PhpRenderer;
 
 class PageViewRoutingProvider implements ServiceProviderInterface
 {
@@ -18,12 +17,14 @@ class PageViewRoutingProvider implements ServiceProviderInterface
      *
      * @param Container|ContainerInterface $pimple A container instance
      *
-     * @return PhpRenderer
      */
     public function register(Container $pimple)
     {
-        $pimple['notFoundHandler'] = function () {
-            return new NotFound();
+        /** @var \Carbontwelve\SlimPlates\PlatesRenderer $renderer */
+        $renderer = $pimple['renderer'];
+
+        $pimple['notFoundHandler'] = function () use($renderer) {
+            return new NotFoundPageResolver($renderer);
         };
     }
 }

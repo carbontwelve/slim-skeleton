@@ -2,13 +2,29 @@
 
 namespace App\Http\Handlers;
 
+use Carbontwelve\SlimPlates\PlatesRenderer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Http\Body;
 use UnexpectedValueException;
 
-class NotFound extends \Slim\Handlers\NotFound
+class NotFoundPageResolver extends \Slim\Handlers\NotFound
 {
+
+    /**
+     * @var PlatesRenderer
+     */
+    private $platesRenderer;
+
+    /**
+     * NotFoundPageResolver constructor.
+     * @param PlatesRenderer $platesRenderer
+     */
+    public function __construct(PlatesRenderer $platesRenderer)
+    {
+        $this->platesRenderer = $platesRenderer;
+    }
+
     /**
      * Invoke not found handler
      *
@@ -64,7 +80,7 @@ class NotFound extends \Slim\Handlers\NotFound
             $requestPathString = (string) $requestUri->withPath( implode('/', $requestPath));
 
             // Check first that we are not redirecting to a 404, if the request path is zero length then its safe to assume it exists as a / path
-            if(count($requestPath) > 0 && ! $this->pageExists($requestPathString)) {
+            if(count($requestPath) > 0 && ! $this->pageExists($requestPath)) {
                 return null;
             }
 
@@ -72,14 +88,37 @@ class NotFound extends \Slim\Handlers\NotFound
                 ->withHeader('Location', $requestPathString);
         }
 
-        dd($requestPath);
+        if ($viewPath = $this->resolvePageViewPath($requestPath)) {
+            return $this->platesRenderer->render($response, $viewPath);
+        }
 
         return null;
     }
 
-    private function pageExists($path)
+    private function resolvePageViewPath($path)
     {
-        
-        return false;
+        // Do not allow access to view files beginning with an underscore in the filename
+        foreach($path as $item) {
+            if ( substr($item, 0 ,1) === '_' ){
+                return null;
+            }
+        }
+        unset($item);
+
+        $platesEngine = $this->platesRenderer->getEngine();
+
+        // Check if path is a directory and if it is, check for an index view file
+        $filesystemPath = $platesEngine->getDirectory() . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $path);
+
+        if (file_exists($filesystemPath) && is_dir($filesystemPath) && $platesEngine->exists( 'pages/' . implode('/', $path) . '/index' )) {
+            return 'pages/' . implode('/', $path) . '/index';
+        }
+
+        // Else simply check to see if the view exists
+        if ($platesEngine->exists( 'pages/' . implode('/', $path))){
+            return 'pages/' . implode('/', $path);
+        }
+
+        return null;
     }
 }
