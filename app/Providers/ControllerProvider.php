@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Http\Controllers\ExampleController;
-use App\Http\Controllers\PageController;
 use Interop\Container\ContainerInterface;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
@@ -11,7 +10,7 @@ use Slim\Views\PhpRenderer;
 
 class ControllerProvider implements ServiceProviderInterface
 {
-    /** @var array  */
+    /** @var array */
     private $controllers = [];
 
     /**

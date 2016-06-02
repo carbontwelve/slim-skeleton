@@ -10,7 +10,6 @@ use UnexpectedValueException;
 
 class NotFoundPageResolver extends \Slim\Handlers\NotFound
 {
-
     /**
      * @var PlatesRenderer
      */
@@ -18,6 +17,7 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
 
     /**
      * NotFoundPageResolver constructor.
+     *
      * @param PlatesRenderer $platesRenderer
      */
     public function __construct(PlatesRenderer $platesRenderer)
@@ -26,13 +26,14 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
     }
 
     /**
-     * Invoke not found handler
+     * Invoke not found handler.
      *
-     * @param  ServerRequestInterface $request  The most recent Request object
-     * @param  ResponseInterface      $response The most recent Response object
+     * @param ServerRequestInterface $request  The most recent Request object
+     * @param ResponseInterface      $response The most recent Response object
+     *
+     * @throws UnexpectedValueException
      *
      * @return ResponseInterface
-     * @throws UnexpectedValueException
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response)
     {
@@ -48,7 +49,7 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
                 break;
 
             case 'text/html':
-                if($pageFound = $this->resolvePage($request, $response)) {
+                if ($pageFound = $this->resolvePage($request, $response)) {
                     return $pageFound;
                 }
 
@@ -56,7 +57,7 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
                 break;
 
             default:
-                throw new UnexpectedValueException('Cannot render unknown content type ' . $contentType);
+                throw new UnexpectedValueException('Cannot render unknown content type '.$contentType);
         }
 
         $body = new Body(fopen('php://temp', 'r+'));
@@ -70,18 +71,18 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
     private function resolvePage(ServerRequestInterface $request, ResponseInterface $response)
     {
         $requestUri = $request->getUri();
-        $requestPath = array_filter(explode('/', $requestUri->getPath()), function($value){
-            return (strlen(trim($value)) > 0);
+        $requestPath = array_filter(explode('/', $requestUri->getPath()), function ($value) {
+            return strlen(trim($value)) > 0;
         });
 
         // If somehow the user has come to an index page via its not-pretty-uri 301 redirect them
         if (end($requestPath) === 'index') {
             array_pop($requestPath);
-            $requestPathString = (string) $requestUri->withPath( implode('/', $requestPath));
+            $requestPathString = (string) $requestUri->withPath(implode('/', $requestPath));
 
             // Check first that we are not redirecting to a 404, if the request path is zero length then its safe to assume it exists as a / path
-            if(count($requestPath) > 0 && ! $this->pageExists($requestPath)) {
-                return null;
+            if (count($requestPath) > 0 && !$this->pageExists($requestPath)) {
+                return;
             }
 
             return $response->withStatus(301)
@@ -91,16 +92,14 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
         if ($viewPath = $this->resolvePageViewPath($requestPath)) {
             return $this->platesRenderer->render($response, $viewPath);
         }
-
-        return null;
     }
 
     private function resolvePageViewPath($path)
     {
         // Do not allow access to view files beginning with an underscore in the filename
-        foreach($path as $item) {
-            if ( substr($item, 0 ,1) === '_' ){
-                return null;
+        foreach ($path as $item) {
+            if (substr($item, 0, 1) === '_') {
+                return;
             }
         }
         unset($item);
@@ -108,17 +107,15 @@ class NotFoundPageResolver extends \Slim\Handlers\NotFound
         $platesEngine = $this->platesRenderer->getEngine();
 
         // Check if path is a directory and if it is, check for an index view file
-        $filesystemPath = $platesEngine->getDirectory() . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, $path);
+        $filesystemPath = $platesEngine->getDirectory().DIRECTORY_SEPARATOR.'pages'.DIRECTORY_SEPARATOR.implode(DIRECTORY_SEPARATOR, $path);
 
-        if (file_exists($filesystemPath) && is_dir($filesystemPath) && $platesEngine->exists( 'pages/' . implode('/', $path) . '/index' )) {
-            return 'pages/' . implode('/', $path) . '/index';
+        if (file_exists($filesystemPath) && is_dir($filesystemPath) && $platesEngine->exists('pages/'.implode('/', $path).'/index')) {
+            return 'pages/'.implode('/', $path).'/index';
         }
 
         // Else simply check to see if the view exists
-        if ($platesEngine->exists( 'pages/' . implode('/', $path))){
-            return 'pages/' . implode('/', $path);
+        if ($platesEngine->exists('pages/'.implode('/', $path))) {
+            return 'pages/'.implode('/', $path);
         }
-
-        return null;
     }
 }

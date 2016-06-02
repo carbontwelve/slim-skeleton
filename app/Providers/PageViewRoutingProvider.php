@@ -16,14 +16,13 @@ class PageViewRoutingProvider implements ServiceProviderInterface
      * It should not get services.
      *
      * @param Container|ContainerInterface $pimple A container instance
-     *
      */
     public function register(Container $pimple)
     {
         /** @var \Carbontwelve\SlimPlates\PlatesRenderer $renderer */
         $renderer = $pimple['renderer'];
 
-        $pimple['notFoundHandler'] = function () use($renderer) {
+        $pimple['notFoundHandler'] = function () use ($renderer) {
             return new NotFoundPageResolver($renderer);
         };
     }
