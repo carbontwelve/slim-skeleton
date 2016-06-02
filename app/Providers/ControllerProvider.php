@@ -10,7 +10,7 @@ use Slim\Views\PhpRenderer;
 
 class ControllerProvider implements ServiceProviderInterface
 {
-    /** @var array  */
+    /** @var array */
     private $controllers = [];
 
     /**
